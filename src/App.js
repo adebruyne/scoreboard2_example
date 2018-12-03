@@ -49,7 +49,8 @@ class App extends Component {
           id={score.id}
           name={score.name}
           score={score.score}
-          handleClick={this._incrementScoreById.bind(this)}
+          // handleClick={this._incrementScoreById.bind(this)}
+          handleClick={id => this._incrementScoreById(id)}
         />
       );
     });
