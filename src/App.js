@@ -47,10 +47,31 @@ class App extends Component {
           <h2>
             Name: {score.name} // Score: {score.score}
           </h2>
+          <button onClick={() => this._incrementScoreById(score.id)}>+</button>
         </div>
       );
     });
     return cards;
+  }
+
+  _incrementScoreById(id) {
+    //find the player in this.state.scores
+    //increment their score
+    const newScores = this.state.scores.map(jeff => {
+      if (jeff.id !== id) {
+        return jeff;
+      } else {
+        return {
+          id: jeff.id,
+          name: jeff.name,
+          score: jeff.score + 1
+        };
+      }
+    });
+    //and call this.setState
+    this.setState({
+      scores: newScores
+    });
   }
 }
 
