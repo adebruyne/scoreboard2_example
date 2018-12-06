@@ -9,6 +9,7 @@ function ScoreCard(props) {
         </h2>
 
         <button onClick={() => props.handleClick(props.id)}>+</button>
+        <button onClick={() => props.handleDelete(props.id)}>-</button>
       </div>
     </div>
   );
