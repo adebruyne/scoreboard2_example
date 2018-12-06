@@ -51,10 +51,21 @@ class App extends Component {
           score={score.score}
           // handleClick={this._incrementScoreById.bind(this)}
           handleClick={id => this._incrementScoreById(id)}
+          handleDelete={id => this._handleDecrement(id)}
         />
       );
     });
     return cards;
+  }
+
+  _handleDecrement(id) {
+    const newScores = this.state.scores.map(bob => {
+      return bob.id !== id ? bob : { ...bob, score: bob.score - 1 };
+    });
+    //and call this.setState
+    this.setState({
+      scores: newScores
+    });
   }
 
   //Version 1: .map, manually constructing replacement
